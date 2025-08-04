@@ -1,18 +1,25 @@
+import { useState } from 'react'
 import Monetization from './components/monetization/Monetization'
+import Header from './components/Header'
+import Home from './components/Home'
+import Activities from './components/Activities'
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home')
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'activities':
+        return <Activities />
+      default:
+        return <Home />
+    }
+  }
+
   return (
     <Monetization>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-800">
-        <div className="text-center">
-          <h1 className="text-6xl font-bold text-white mb-4">
-            🚀 Hello - welcome to Pluto! 🪐
-          </h1>
-          <div className="text-4xl">
-            ✨ 🌌 ⭐ 🌟 ✨
-          </div>
-        </div>
-      </div>
+      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      {renderPage()}
     </Monetization>
   )
 }
