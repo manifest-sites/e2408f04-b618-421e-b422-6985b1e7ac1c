@@ -1,6 +1,6 @@
 function Header({ currentPage, setCurrentPage }) {
   return (
-    <header className="bg-black text-white py-4 px-6">
+    <header className="sticky top-0 z-50 bg-black text-white py-4 px-6">
       <nav className="flex space-x-8">
         <button
           onClick={() => setCurrentPage('home')}
